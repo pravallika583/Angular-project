@@ -17,6 +17,9 @@ export class AuthService {
   isLoggedIn(): boolean {
     return localStorage.getItem('email') != null;
   }
+  isAdmin(): boolean {
+    return localStorage.getItem('isAdmin') === 'true'; 
+  }
   signout(){
     this.router.navigate(['/login']);
      localStorage.removeItem('email');

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddMovieComponent } from './component/add-movie/add-movie.component';
+import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { PaymentComponent } from './component/payment/payment.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'add', component: AddMovieComponent},
   { path: 'register', component: RegisterComponent },
   {path:'ticket-booking/:id', component:TicketBookingComponent ,canActivate: [RouterGaurdService]},
-  {path:'payment', component:PaymentComponent}
+  {path:'payment', component:PaymentComponent},
+  {path:'bookings', component:BookingHistoryComponent}
 ];
 
 @NgModule({

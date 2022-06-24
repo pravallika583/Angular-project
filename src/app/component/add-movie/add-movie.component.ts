@@ -43,18 +43,5 @@ export class AddMovieComponent implements OnInit {
       },
     });
   }
-  // getAllMovies() {
-  //   this.movieService.getAllMovies().subscribe({
-  //     next: (response: any) => {
-  //       this.initialMovies = response;
-  //       for (let i = 0; i < this.initialMovies.length; i++) {
-  //         if (this.initialMovies[i].id == this.id) {
-  //           this.newModel = this.initialMovies[i];
-  //         }
-  //       }
-  //       console.log(this.newModel);
-  //     },
-  //     error: (error: any) => console.log(error),
-  //   });
-  // }
+ 
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NewMovie } from 'src/app/model/newMovie';
 import { Ticketbooking } from 'src/app/model/ticketbooking';
+import { AuthService } from 'src/app/service/auth.service';
 import { MovieService } from 'src/app/service/movie.service';
 import { TicketService } from 'src/app/service/ticket.service';
 
@@ -14,14 +15,18 @@ export class CardComponent implements OnInit {
   @Input() newMovie!: NewMovie;
   count!: number;
   @Input() ticketbooking!: Ticketbooking;
+  isAdmin: boolean = false;
 
   constructor(
     private router: Router,
     private ticketService: TicketService,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private authService: AuthService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
+  }
   bookticket() {
     console.log(this.ticketbooking);
     this.ticketService.bookticket(this.ticketbooking).subscribe({
@@ -36,11 +41,21 @@ export class CardComponent implements OnInit {
 
   delete(id: number) {
     this.movieService.delete(id).subscribe({
-      next: (response: any) => console.log(response),
+      next: (response: any) => {
+        console.log(response);
+        window.location.reload()
+      },
       error: (error: any) => console.log(error),
     });
   }
   edit(movie: NewMovie) {
-    this.router.navigate(['/add', movie.id]);
+    //this.router.navigate(['/add', movie.id]);
+    this.movieService.edit(movie).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        window.location.reload()
+      },
+      error: (error: any) => console.log(error),
+    });
   }
 }

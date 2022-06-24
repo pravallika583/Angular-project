@@ -24,6 +24,7 @@
       <button
         class="btn-danger rounded button m-4 p-2"
         routerLink="/add"
+        *ngIf="!isAdmin"
         (click)="create()"
       >
         create
@@ -32,13 +33,18 @@
         class="btn-danger rounded button m-4 p-2"
         routerLink="/login"
         (click)="signin()"
+        *ngIf="!isLoggedIn"
       >
         Sign In
+      </button>
+      <button class="btn-danger rounded m-3 p-2" *ngIf="isLoggedIn" 
+         aria-current="page" routerLink="/bookings">Bookings
       </button>
       <button
         class="btn-danger rounded button m-3 p-2"
         routerLink="/login"
         (click)="signout()"
+        *ngIf="isLoggedIn"
       >
         Sign Out
       </button>

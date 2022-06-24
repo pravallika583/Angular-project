@@ -14,6 +14,7 @@ import { PaymentComponent } from './component/payment/payment.component';
 import { TicketBookingComponent } from './component/ticket-booking/ticket-booking.component';
 import { MovieTicketbookingComponent } from './component/movie-ticketbooking/movie-ticketbooking.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentComponent,
     TicketBookingComponent,
     MovieTicketbookingComponent,
+    BookingHistoryComponent,
   ],
   imports: [
     BrowserModule,

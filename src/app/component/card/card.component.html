@@ -1,14 +1,23 @@
 <div class="card">
-  <a href="" routerLink="/ticket-booking/{{newMovie.id}}" class="rounded" (click)="bookticket()">
-    <img src="{{ newMovie.img }}" alt="Card image "
+  <a
+    href=""
+    routerLink="/ticket-booking/{{ newMovie.id }}"
+    class="rounded"
+    (click)="bookticket()"
+  >
+    <img class="image" src="{{ newMovie.img }}" alt="Card image "
   /></a>
   <div>
     <h3>
       {{ newMovie.moviename }}
     </h3>
     <p class="my-2">{{ newMovie.category }}</p>
-    
-    <a class="btn btn-success mx-2" (click)="edit(newMovie)">Edit</a>
-    <a class="btn btn-danger" (click)="delete(newMovie.id)" >Delete</a>
+    <a class="btn btn-success mx-2" (click)="edit(newMovie)" *ngIf="!isAdmin"
+      >Edit</a
+    >
+
+    <a class="btn btn-danger" (click)="delete(newMovie.id)" *ngIf="!isAdmin"
+      >Delete</a
+    >
   </div>
 </div>

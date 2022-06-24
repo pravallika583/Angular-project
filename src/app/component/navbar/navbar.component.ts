@@ -8,8 +8,13 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   constructor(private router: Router,private authService:AuthService) { }
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.isLoggedIn();
+    this.isAdmin = this.authService.isAdmin();
+  }
   signin()
   {
     this.router.navigate(['/login']);
@@ -24,7 +29,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/add']);
   }
 
-  ngOnInit(): void {
-  }
+  
 
 }

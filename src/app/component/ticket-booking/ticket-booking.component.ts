@@ -9,6 +9,7 @@ import { NewMovie } from 'src/app/model/newMovie';
   styleUrls: ['./ticket-booking.component.css'],
 })
 export class TicketBookingComponent implements OnInit {
+  id: number = 0;
   movie!: NewMovie;
   ticketbooking: Ticketbooking = {
     moviename: '',
@@ -24,13 +25,20 @@ export class TicketBookingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.movie = this.movieService.getMovieById(
-      this.route.snapshot.params['id']
-    );
-    this.ticketbooking.moviename = this.movie.moviename;
-    this.ticketbooking.price = this.movie.price;
-    console.log(this.ticketbooking);
+    this.id = this.route.snapshot.params['id'];
 
+    this.movieService.getMovieById(this.id).subscribe({
+      next: (response: any) => {
+        this.movie = response;
+        console.log(response);
+        this.ticketbooking.moviename = this.movie.moviename;
+        this.ticketbooking.price = this.movie.price;
+        console.log(this.ticketbooking);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
   }
 
   payment() {
