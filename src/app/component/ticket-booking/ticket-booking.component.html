@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<div class="container my-4">
+  <h1 class="mb-3">Ticket Booking</h1>
+  <form (ngSubmit)="!movieForm.invalid && payment()" #movieForm="ngForm">
+    <div class="alert alert-danger" role="alert" *ngIf="!NoOfTickets.valid">
+      No Of Tickets is required.
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Movie Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="moviename"
+        #moviename="ngModel"
+        disabled
+        [(ngModel)]="ticketbooking.moviename"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">NoOfTickets</label>
+      <input
+        type="text"
+        class="form-control"
+        name="NoOfTickets"
+        #NoOfTickets="ngModel"
+        required
+        [(ngModel)]="ticketbooking.NoOfTickets"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        name="price"
+        #price="ngModel"
+        disabled
+        [(ngModel)]="ticketbooking.price"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Timings</label>
+      <select
+        name="category"
+        class="form-control"
+        [(ngModel)]="ticketbooking.Timings"
+      >
+        <option value="first">9.00 AM</option>
+        <option value="second">2.00 PM</option>
+        <option value="third">6.00 PM</option>
+        <option value="fourth">9.00 PM</option>
+      </select>
+    </div>
+    <h1>Total Amount: {{ ticketbooking.price * ticketbooking.NoOfTickets }}</h1>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      routerLink="/payment"
+      [disabled]="!movieForm.valid"
+    >
+      Payment
+    </button>
+  </form>
+</div>
