@@ -52,9 +52,9 @@ export class MovieService {
     // return this.movie;
     return this.http.get(`http://localhost:9091/api/post/get/${id}`);
   }
-  edit(movie:NewModel) {
+  update(newModel:NewModel) {
     // return this.initialMovies;
-    return this.http.get(`http://localhost:9091/api/post/update`);
+    return this.http.put(`http://localhost:9091/api/post/update`,newModel);
   }
 
   addMovie(movie: NewModel) {

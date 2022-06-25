@@ -48,14 +48,14 @@ export class CardComponent implements OnInit {
       error: (error: any) => console.log(error),
     });
   }
-  edit(movie: NewMovie) {
-    //this.router.navigate(['/add', movie.id]);
-    this.movieService.edit(movie).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        window.location.reload()
-      },
-      error: (error: any) => console.log(error),
-    });
+  edit(id: number) {
+    this.router.navigate(['/edit', id]);
+    // this.movieService.edit(movie).subscribe({
+    //   next: (response: any) => {
+    //     console.log(response);
+    //     window.location.reload()
+    //   },
+    //   error: (error: any) => console.log(error),
+    // });
   }
 }

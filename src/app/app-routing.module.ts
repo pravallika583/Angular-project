@@ -12,7 +12,8 @@ import { RouterGaurdService } from './service/router-gaurd.service';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent} ,
-  { path: 'add', component: AddMovieComponent},
+  { path: 'add', component: AddMovieComponent },
+  { path: 'edit/:id', component: AddMovieComponent},
   { path: 'register', component: RegisterComponent },
   {path:'ticket-booking/:id', component:TicketBookingComponent ,canActivate: [RouterGaurdService]},
   {path:'payment', component:PaymentComponent},

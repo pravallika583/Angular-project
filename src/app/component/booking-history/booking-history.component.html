@@ -1,4 +1,3 @@
- <p>booking-history works!</p>
 <app-navbar></app-navbar>
 <div class="container">
     <table class="table">
@@ -11,8 +10,8 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let booked of bookingMovies">
-              <th scope="row">{{ booked.movieName }}</th>
+            <tr *ngFor="let booked of ticketbookings">
+              <th scope="row">{{ booked.moviename }}</th>
               <td>{{ booked.NoOfTickets }}</td>
               <td>Rs. {{ booked.price }}</td>
               <td> {{ booked.Timings }}</td>

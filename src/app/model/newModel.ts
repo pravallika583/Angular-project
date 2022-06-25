@@ -1,5 +1,5 @@
 export interface NewModel {
-    //id: number;
+    id: number;
     moviename: string;
     category: string;
     img: string;
